@@ -1,0 +1,608 @@
+/*
+ * ============================================================
+ *  01-tokens.css — Design Tokens
+ *  Golden Rule #2: 3-Tier Token (Reference → Semantic → Component)
+ *  Golden Rule #6: Dark-First Token
+ * ============================================================
+ */
+
+/* ============================================================
+   LAYER 1: REFERENCE TOKENS
+   静的な値。直接UIから参照しない。
+   ============================================================ */
+:root {
+
+  /* --- Color Palette --- */
+  --ref-blue-50:   #eff6ff;
+  --ref-blue-100:  #dbeafe;
+  --ref-blue-200:  #bfdbfe;
+  --ref-blue-300:  #93c5fd;
+  --ref-blue-400:  #60a5fa;
+  --ref-blue-500:  #3b82f6;
+  --ref-blue-600:  #2563eb;
+  --ref-blue-700:  #1d4ed8;
+  --ref-blue-800:  #1e40af;
+  --ref-blue-900:  #1e3a8a;
+
+  --ref-gray-0:    #ffffff;
+  --ref-gray-50:   #f9fafb;
+  --ref-gray-100:  #f3f4f6;
+  --ref-gray-150:  #eceef1;
+  --ref-gray-200:  #e5e7eb;
+  --ref-gray-300:  #d1d5db;
+  --ref-gray-400:  #9ca3af;
+  --ref-gray-500:  #6b7280;
+  --ref-gray-600:  #4b5563;
+  --ref-gray-700:  #374151;
+  --ref-gray-800:  #1f2937;
+  --ref-gray-850:  #18202e;
+  --ref-gray-900:  #111827;
+  --ref-gray-950:  #0a0f1a;
+  --ref-gray-1000: #000000;
+
+  --ref-green-50:  #f0fdf4;
+  --ref-green-100: #dcfce7;
+  --ref-green-400: #4ade80;
+  --ref-green-500: #22c55e;
+  --ref-green-600: #16a34a;
+  --ref-green-700: #15803d;
+
+  --ref-yellow-50:  #fefce8;
+  --ref-yellow-100: #fef9c3;
+  --ref-yellow-400: #facc15;
+  --ref-yellow-500: #eab308;
+  --ref-yellow-600: #ca8a04;
+  --ref-yellow-700: #a16207;
+
+  --ref-red-50:   #fef2f2;
+  --ref-red-100:  #fee2e2;
+  --ref-red-400:  #f87171;
+  --ref-red-500:  #ef4444;
+  --ref-red-600:  #dc2626;
+  --ref-red-700:  #b91c1c;
+
+  --ref-orange-50:  #fff7ed;
+  --ref-orange-100: #ffedd5;
+  --ref-orange-400: #fb923c;
+  --ref-orange-500: #f97316;
+  --ref-orange-600: #ea580c;
+
+  --ref-purple-50:  #faf5ff;
+  --ref-purple-100: #f3e8ff;
+  --ref-purple-400: #c084fc;
+  --ref-purple-500: #a855f7;
+  --ref-purple-600: #9333ea;
+
+  /* --- Typography Scale --- */
+  --ref-font-size-10: 0.625rem;   /* 10px */
+  --ref-font-size-11: 0.6875rem;  /* 11px */
+  --ref-font-size-12: 0.75rem;    /* 12px */
+  --ref-font-size-13: 0.8125rem;  /* 13px */
+  --ref-font-size-14: 0.875rem;   /* 14px */
+  --ref-font-size-15: 0.9375rem;  /* 15px */
+  --ref-font-size-16: 1rem;       /* 16px */
+  --ref-font-size-18: 1.125rem;   /* 18px */
+  --ref-font-size-20: 1.25rem;    /* 20px */
+  --ref-font-size-24: 1.5rem;     /* 24px */
+  --ref-font-size-28: 1.75rem;    /* 28px */
+  --ref-font-size-30: 1.875rem;   /* 30px */
+  --ref-font-size-32: 2rem;       /* 32px */
+  --ref-font-size-36: 2.25rem;    /* 36px */
+  --ref-font-size-40: 2.5rem;     /* 40px */
+  --ref-font-size-48: 3rem;       /* 48px */
+  --ref-font-size-56: 3.5rem;     /* 56px */
+  --ref-font-size-64: 4rem;       /* 64px */
+
+  /* --- Font Weights --- */
+  --ref-weight-regular:   400;
+  --ref-weight-medium:    500;
+  --ref-weight-semibold:  600;
+  --ref-weight-bold:      700;
+
+  /* --- Spacing Scale (Rule #1: 8px Grid) --- */
+  --ref-space-1:  4px;
+  --ref-space-2:  8px;
+  --ref-space-3:  12px;
+  --ref-space-4:  16px;
+  --ref-space-5:  24px;
+  --ref-space-6:  32px;
+  --ref-space-7:  48px;
+  --ref-space-8:  64px;
+  --ref-space-9:  96px;
+  --ref-space-10: 128px;
+
+  /* --- Border Radius --- */
+  --ref-radius-none: 0px;
+  --ref-radius-sm:   4px;
+  --ref-radius-md:   8px;
+  --ref-radius-lg:   12px;
+  --ref-radius-xl:   16px;
+  --ref-radius-2xl:  24px;
+  --ref-radius-full: 9999px;
+
+  /* --- Shadows --- */
+  --ref-shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ref-shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --ref-shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --ref-shadow-xl:  0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --ref-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  /* --- Transitions --- */
+  --ref-duration-fast:   100ms;
+  --ref-duration-base:   160ms;
+  --ref-duration-slow:   240ms;
+  --ref-duration-slower: 400ms;
+  --ref-easing-default:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ref-easing-in:       cubic-bezier(0.4, 0, 1, 1);
+  --ref-easing-out:      cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+/* ============================================================
+   LAYER 2: SEMANTIC TOKENS — LIGHT MODE (Default)
+   役割名で色を参照する。Rule #4: Semantic Color
+   ============================================================ */
+:root,
+[data-theme="light"] {
+
+  /* --- Brand / Action --- */
+  --color-primary:          var(--ref-blue-600);
+  --color-primary-hover:    var(--ref-blue-700);
+  --color-primary-active:   var(--ref-blue-800);
+  --color-primary-subtle:   var(--ref-blue-50);
+  --color-primary-text:     var(--ref-blue-700);
+
+  --color-secondary:        var(--ref-gray-700);
+  --color-secondary-hover:  var(--ref-gray-800);
+  --color-secondary-subtle: var(--ref-gray-100);
+
+  /* --- State Colors --- */
+  --color-success:          var(--ref-green-600);
+  --color-success-hover:    var(--ref-green-700);
+  --color-success-subtle:   var(--ref-green-50);
+  --color-success-text:     var(--ref-green-700);
+
+  --color-warning:          var(--ref-yellow-600);
+  --color-warning-hover:    var(--ref-yellow-700);
+  --color-warning-subtle:   var(--ref-yellow-50);
+  --color-warning-text:     var(--ref-yellow-700);
+
+  --color-danger:           var(--ref-red-600);
+  --color-danger-hover:     var(--ref-red-700);
+  --color-danger-active:    var(--ref-red-700);
+  --color-danger-subtle:    var(--ref-red-50);
+  --color-danger-text:      var(--ref-red-700);
+
+  --color-info:             var(--ref-blue-600);
+  --color-info-subtle:      var(--ref-blue-50);
+  --color-info-text:        var(--ref-blue-700);
+
+  /* --- Backgrounds --- */
+  --color-bg-base:     var(--ref-gray-0);
+  --color-bg-surface:  var(--ref-gray-50);
+  --color-bg-overlay:  var(--ref-gray-100);
+  --color-bg-subtle:   var(--ref-gray-100);
+  --color-bg-inverse:  var(--ref-gray-900);
+
+  /* --- Text --- */
+  --color-text-primary:   var(--ref-gray-900);
+  --color-text-secondary: var(--ref-gray-600);
+  --color-text-muted:     var(--ref-gray-400);
+  --color-text-disabled:  var(--ref-gray-300);
+  --color-text-inverse:   var(--ref-gray-0);
+  --color-text-link:      var(--ref-blue-600);
+  --color-text-link-hover:var(--ref-blue-700);
+
+  /* --- Borders --- */
+  --color-border-subtle:  var(--ref-gray-100);
+  --color-border-default: var(--ref-gray-200);
+  --color-border-strong:  var(--ref-gray-400);
+  --color-border-focus:   var(--ref-blue-500);
+
+  /* --- Shadows (semantic) --- */
+  --shadow-sm: var(--ref-shadow-sm);
+  --shadow-md: var(--ref-shadow-md);
+  --shadow-lg: var(--ref-shadow-lg);
+  --shadow-xl: var(--ref-shadow-xl);
+}
+
+
+/* ============================================================
+   LAYER 2: SEMANTIC TOKENS — DARK MODE
+   Rule #6: Dark-First Token
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* --- Brand / Action --- */
+    --color-primary:          var(--ref-blue-400);
+    --color-primary-hover:    var(--ref-blue-300);
+    --color-primary-active:   var(--ref-blue-200);
+    --color-primary-subtle:   color-mix(in srgb, var(--ref-blue-900) 60%, transparent);
+    --color-primary-text:     var(--ref-blue-300);
+
+    --color-secondary:        var(--ref-gray-300);
+    --color-secondary-hover:  var(--ref-gray-200);
+    --color-secondary-subtle: var(--ref-gray-800);
+
+    /* --- State Colors --- */
+    --color-success:          var(--ref-green-400);
+    --color-success-hover:    var(--ref-green-500);
+    --color-success-subtle:   color-mix(in srgb, var(--ref-green-900, #14532d) 60%, transparent);
+    --color-success-text:     var(--ref-green-400);
+
+    --color-warning:          var(--ref-yellow-400);
+    --color-warning-hover:    var(--ref-yellow-500);
+    --color-warning-subtle:   color-mix(in srgb, var(--ref-yellow-900, #713f12) 60%, transparent);
+    --color-warning-text:     var(--ref-yellow-400);
+
+    --color-danger:           var(--ref-red-400);
+    --color-danger-hover:     var(--ref-red-500);
+    --color-danger-active:    var(--ref-red-500);
+    --color-danger-subtle:    color-mix(in srgb, var(--ref-red-900, #7f1d1d) 60%, transparent);
+    --color-danger-text:      var(--ref-red-400);
+
+    --color-info:             var(--ref-blue-400);
+    --color-info-subtle:      color-mix(in srgb, var(--ref-blue-900) 60%, transparent);
+    --color-info-text:        var(--ref-blue-300);
+
+    /* --- Backgrounds --- */
+    --color-bg-base:     #0f1117;
+    --color-bg-surface:  #161b22;
+    --color-bg-overlay:  #1e2430;
+    --color-bg-subtle:   #1e2430;
+    --color-bg-inverse:  var(--ref-gray-0);
+
+    /* --- Text --- */
+    --color-text-primary:    var(--ref-gray-50);
+    --color-text-secondary:  var(--ref-gray-400);
+    --color-text-muted:      var(--ref-gray-600);
+    --color-text-disabled:   var(--ref-gray-700);
+    --color-text-inverse:    var(--ref-gray-900);
+    --color-text-link:       var(--ref-blue-400);
+    --color-text-link-hover: var(--ref-blue-300);
+
+    /* --- Borders --- */
+    --color-border-subtle:  rgba(255,255,255,0.05);
+    --color-border-default: rgba(255,255,255,0.10);
+    --color-border-strong:  rgba(255,255,255,0.25);
+    --color-border-focus:   var(--ref-blue-400);
+
+    /* --- Shadows (darker/more opaque in dark mode) --- */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+  }
+}
+
+[data-theme="dark"] {
+  /* --- Brand / Action --- */
+  --color-primary:          var(--ref-blue-400);
+  --color-primary-hover:    var(--ref-blue-300);
+  --color-primary-active:   var(--ref-blue-200);
+  --color-primary-subtle:   color-mix(in srgb, var(--ref-blue-900) 60%, transparent);
+  --color-primary-text:     var(--ref-blue-300);
+
+  --color-secondary:        var(--ref-gray-300);
+  --color-secondary-hover:  var(--ref-gray-200);
+  --color-secondary-subtle: var(--ref-gray-800);
+
+  --color-success:          var(--ref-green-400);
+  --color-success-hover:    var(--ref-green-500);
+  --color-success-subtle:   color-mix(in srgb, #14532d 60%, transparent);
+  --color-success-text:     var(--ref-green-400);
+
+  --color-warning:          var(--ref-yellow-400);
+  --color-warning-hover:    var(--ref-yellow-500);
+  --color-warning-subtle:   color-mix(in srgb, #713f12 60%, transparent);
+  --color-warning-text:     var(--ref-yellow-400);
+
+  --color-danger:           var(--ref-red-400);
+  --color-danger-hover:     var(--ref-red-500);
+  --color-danger-active:    var(--ref-red-500);
+  --color-danger-subtle:    color-mix(in srgb, #7f1d1d 60%, transparent);
+  --color-danger-text:      var(--ref-red-400);
+
+  --color-info:             var(--ref-blue-400);
+  --color-info-subtle:      color-mix(in srgb, var(--ref-blue-900) 60%, transparent);
+  --color-info-text:        var(--ref-blue-300);
+
+  --color-bg-base:     #0f1117;
+  --color-bg-surface:  #161b22;
+  --color-bg-overlay:  #1e2430;
+  --color-bg-subtle:   #1e2430;
+  --color-bg-inverse:  var(--ref-gray-0);
+
+  --color-text-primary:    var(--ref-gray-50);
+  --color-text-secondary:  var(--ref-gray-400);
+  --color-text-muted:      var(--ref-gray-600);
+  --color-text-disabled:   var(--ref-gray-700);
+  --color-text-inverse:    var(--ref-gray-900);
+  --color-text-link:       var(--ref-blue-400);
+  --color-text-link-hover: var(--ref-blue-300);
+
+  --color-border-subtle:  rgba(255,255,255,0.05);
+  --color-border-default: rgba(255,255,255,0.10);
+  --color-border-strong:  rgba(255,255,255,0.25);
+  --color-border-focus:   var(--ref-blue-400);
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+}
+
+
+/* ============================================================
+   LAYER 3: SEMANTIC SPACING & TYPOGRAPHY TOKENS
+   Rule #1: 8px Grid / Rule #5: Relative Type
+   ============================================================ */
+:root {
+
+  /* --- Spacing (semantic aliases) --- */
+  --space-1:  var(--ref-space-1);   /* 4px  */
+  --space-2:  var(--ref-space-2);   /* 8px  */
+  --space-3:  var(--ref-space-3);   /* 12px */
+  --space-4:  var(--ref-space-4);   /* 16px */
+  --space-5:  var(--ref-space-5);   /* 24px */
+  --space-6:  var(--ref-space-6);   /* 32px */
+  --space-7:  var(--ref-space-7);   /* 48px */
+  --space-8:  var(--ref-space-8);   /* 64px */
+  --space-9:  var(--ref-space-9);   /* 96px */
+  --space-10: var(--ref-space-10);  /* 128px */
+
+  /* Semantic spacing aliases */
+  --space-xs:  var(--space-1);   /* 4px  - icon internal gap */
+  --space-sm:  var(--space-2);   /* 8px  - tight group */
+  --space-md:  var(--space-4);   /* 16px - default padding */
+  --space-lg:  var(--space-5);   /* 24px - section internal */
+  --space-xl:  var(--space-6);   /* 32px - card gap */
+  --space-2xl: var(--space-7);   /* 48px - section break */
+  --space-3xl: var(--space-9);   /* 96px - page section */
+
+  /* --- Typography (semantic aliases) --- */
+  --text-xs:   var(--ref-font-size-12);  /* 0.75rem  */
+  --text-sm:   var(--ref-font-size-14);  /* 0.875rem */
+  --text-base: var(--ref-font-size-16);  /* 1rem     */
+  --text-lg:   var(--ref-font-size-18);  /* 1.125rem */
+  --text-xl:   var(--ref-font-size-20);  /* 1.25rem  */
+  --text-2xl:  var(--ref-font-size-24);  /* 1.5rem   */
+  --text-3xl:  var(--ref-font-size-30);  /* 1.875rem */
+  --text-4xl:  var(--ref-font-size-36);  /* 2.25rem  */
+  --text-5xl:  var(--ref-font-size-48);  /* 3rem     */
+
+  /* Font weights */
+  --font-regular:  var(--ref-weight-regular);
+  --font-medium:   var(--ref-weight-medium);
+  --font-semibold: var(--ref-weight-semibold);
+  --font-bold:     var(--ref-weight-bold);
+
+  /* Font families */
+  --font-sans: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji";
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, "SFMono-Regular",
+               Menlo, Monaco, Consolas, monospace;
+
+  /* Line heights */
+  --leading-tight:  1.25;
+  --leading-snug:   1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed:1.625;
+  --leading-loose:  2;
+
+  /* Letter spacing */
+  --tracking-tighter: -0.04em;
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.025em;
+  --tracking-wider:   0.05em;
+
+  /* --- Border Radius (semantic) --- */
+  --radius-sm:   var(--ref-radius-sm);   /* 4px  */
+  --radius-md:   var(--ref-radius-md);   /* 8px  */
+  --radius-lg:   var(--ref-radius-lg);   /* 12px */
+  --radius-xl:   var(--ref-radius-xl);   /* 16px */
+  --radius-2xl:  var(--ref-radius-2xl);  /* 24px */
+  --radius-full: var(--ref-radius-full); /* 9999px */
+
+  /* --- Touch targets (Rule #3) --- */
+  --touch-min:     44px;
+  --touch-comfort: 48px;
+
+  /* --- Z-index scale --- */
+  --z-below:   -1;
+  --z-base:     0;
+  --z-raised:   1;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+  --z-tooltip:  600;
+
+  /* --- Transitions --- */
+  --transition-fast:   var(--ref-duration-fast)   var(--ref-easing-default);
+  --transition-base:   var(--ref-duration-base)   var(--ref-easing-default);
+  --transition-slow:   var(--ref-duration-slow)   var(--ref-easing-default);
+
+  /* --- Breakpoints (CSS custom props — for use in JS) --- */
+  --bp-sm:  480px;
+  --bp-md:  768px;
+  --bp-lg:  1024px;
+  --bp-xl:  1440px;
+
+  /* --- Layout --- */
+  --container-sm:  640px;
+  --container-md:  960px;
+  --container-lg:  1200px;
+  --container-xl:  1400px;
+  --sidebar-width: 240px;
+}
+
+
+/* ============================================================
+   LAYER 3: COMPONENT TOKENS
+   コンポーネントが参照するトークン
+   ============================================================ */
+:root {
+  /* Button */
+  --btn-height-sm:  32px;
+  --btn-height-md:  var(--touch-min);    /* 44px */
+  --btn-height-lg:  52px;
+  --btn-padding-sm: 0 var(--space-3);
+  --btn-padding-md: 0 var(--space-4);
+  --btn-padding-lg: 0 var(--space-5);
+  --btn-radius:     var(--radius-md);
+  --btn-font-size:  var(--text-sm);
+  --btn-font-weight:var(--font-medium);
+
+  /* Input */
+  --input-height-sm:  32px;
+  --input-height-md:  var(--touch-min);  /* 44px */
+  --input-height-lg:  52px;
+  --input-padding:    0 var(--space-3);
+  --input-radius:     var(--radius-md);
+  --input-font-size:  var(--text-sm);
+  --input-border-width: 1px;
+  --input-bg:         var(--color-bg-base);
+  --input-border:     var(--color-border-default);
+  --input-border-focus: var(--color-border-focus);
+  --input-shadow-focus: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent);
+
+  /* Card */
+  --card-padding:     var(--space-5);     /* 24px */
+  --card-radius:      var(--radius-lg);   /* 12px */
+  --card-bg:          var(--color-bg-surface);
+  --card-border:      var(--color-border-default);
+  --card-shadow:      var(--shadow-sm);
+
+  /* Badge */
+  --badge-height:      22px;
+  --badge-padding:     0 var(--space-2);
+  --badge-radius:      var(--radius-full);
+  --badge-font-size:   var(--text-xs);
+  --badge-font-weight: var(--font-medium);
+
+  /* Modal */
+  --modal-width-sm:    400px;
+  --modal-width-md:    560px;
+  --modal-width-lg:    720px;
+  --modal-radius:      var(--radius-xl);
+  --modal-padding:     var(--space-6);
+  --modal-backdrop:    rgba(0, 0, 0, 0.5);
+
+  /* Toast */
+  --toast-width:   360px;
+  --toast-padding: var(--space-3) var(--space-4);
+  --toast-radius:  var(--radius-lg);
+  --toast-shadow:  var(--shadow-lg);
+}
+
+
+/* ============================================================
+   GLOBAL RESET & BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%; /* 16px base — Rule #5 */
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--font-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Rule #8: Motion Respect */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visible (Rule #7 accessibility) */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Typography base */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+
+h1 { font-size: var(--text-5xl); }
+h2 { font-size: var(--text-4xl); }
+h3 { font-size: var(--text-3xl); }
+h4 { font-size: var(--text-2xl); }
+h5 { font-size: var(--text-xl); }
+h6 { font-size: var(--text-lg); }
+
+p {
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: var(--color-text-link);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: var(--color-text-link-hover);
+  text-decoration: underline;
+}
+
+/* Responsive typography (Rule: Device breakpoints) */
+@media (max-width: 1023px) {
+  html { font-size: 93.75%; } /* 15px */
+  h1 { font-size: var(--text-4xl); }
+  h2 { font-size: var(--text-3xl); }
+  h3 { font-size: var(--text-2xl); }
+}
+
+@media (max-width: 767px) {
+  html { font-size: 100%; } /* 16px — iOS zoom prevention */
+  h1 { font-size: var(--text-3xl); }
+  h2 { font-size: var(--text-2xl); }
+  h3 { font-size: var(--text-xl); }
+  h4 { font-size: var(--text-lg); }
+}
+
+/* Layout utility */
+.container {
+  width: 100%;
+  max-width: var(--container-lg);
+  margin-inline: auto;
+  padding-inline: var(--space-5);
+}
+
+@media (max-width: 1023px) {
+  .container { max-width: var(--container-md); padding-inline: var(--space-4); }
+}
+
+@media (max-width: 767px) {
+  .container { padding-inline: var(--space-4); }
+}
