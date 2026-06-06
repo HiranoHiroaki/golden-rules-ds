@@ -11,7 +11,7 @@ A design constitution distilled from:
 
 ## Live Preview
 
-👉 https://hiranohiroaki.github.io/golden-rules-ds/index.html
+👉 https://wildchildlab.github.io/golden-rules-ds/index.html
 
 ## What's included?
 
