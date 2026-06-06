@@ -1,12 +1,34 @@
-# golden-rules-ds
-Design system golden rules, tokens and components derived from modern product ecosystems.
+# Golden Rules DS
 
+A design constitution distilled from:
 
-# Why?
+- Material 3
+- Apple Human Interface Guidelines
+- Shopify Polaris
+- GitHub Primer
+- Linear
+- Notion
 
-Most design systems focus on components.
+## Live Preview
 
-This repository focuses on principles.
+👉 https://hiranohiroaki.github.io/golden-rules-ds/index.html
 
-The goal is to provide a small design constitution
-that can be consumed directly by AI coding tools.
+## What's included?
+
+- ds-golden-rules.md
+- ds-research-summary.md
+- 01-tokens.css
+- 02-components.css
+- 04-index.html
+
+## Purpose
+
+This repository is not another component library.
+
+It is a distilled design constitution intended for AI-assisted UI generation.
+
+The rules were extracted from six modern design systems and converted into reusable design tokens and components.
+
+## License
+
+MIT
